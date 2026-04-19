@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #1a2b4a;
+  --saffron: #e8762d;
+  --cream: #f4f1eb;
+  --mustard: #f5b942;
+  --ink: #102038;
+  --tile: #f7f5f0;
+}
+
+@theme inline {
+  --color-background: var(--cream);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-manrope);
+  --font-serif: var(--font-fraunces);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: var(--font-manrope), sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(245, 185, 66, 0.22), transparent 36%),
+    radial-gradient(circle at 90% 20%, rgba(232, 118, 45, 0.2), transparent 42%),
+    linear-gradient(160deg, #fffdfa 0%, var(--cream) 50%, #ece7dc 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.font-title {
+  font-family: var(--font-fraunces), serif;
+}
+
+.font-hindi {
+  font-family: var(--font-devanagari), serif;
+}
+
+.panel {
+  border: 1px solid rgba(26, 43, 74, 0.18);
+  background: color-mix(in srgb, var(--tile) 90%, white 10%);
+  box-shadow: 0 16px 42px rgba(13, 27, 49, 0.09);
+}
+
+.kicker {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--navy) 75%, white 25%);
+}
+
+.reveal {
+  animation: revealUp 0.6s ease-out both;
+}
+
+.stagger > * {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: revealUp 0.55s ease-out forwards;
+}
+
+.stagger > *:nth-child(1) {
+  animation-delay: 0.06s;
+}
+
+.stagger > *:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+.stagger > *:nth-child(3) {
+  animation-delay: 0.22s;
+}
+
+.stagger > *:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #efe9dd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--saffron) 85%, black 15%);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--navy);
+}
+
+@media (max-width: 768px) {
+  body {
+    background:
+      radial-gradient(circle at 10% 10%, rgba(245, 185, 66, 0.2), transparent 30%),
+      radial-gradient(circle at 90% 20%, rgba(232, 118, 45, 0.16), transparent 36%),
+      linear-gradient(160deg, #fffdfa 0%, var(--cream) 58%, #eee8dc 100%);
+  }
+}
